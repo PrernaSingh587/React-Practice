@@ -12,7 +12,27 @@ In functional component, as already mentioned, we use useState hook.
 
 An example syntax can be : 
 
+##Method :1
+
 const fn = () => {
+
     const [nameOfVariable, funcToSetTheVar] = useState(initialValue);
-    //This 'intitalValue' is the value at the time of first rerender
+
+    //This 'intitalValue' is the value at the time of first rerender.
+
+const goodFunc = () =>  {
+
+    funcToSetVar('newValue');
+     //Change the value and rerendner the component.
 }
+
+return (
+    <div onClick={goodFunc}> 
+
+    {nameOfVariable}
+    
+    </div>
+);
+  
+}
+
