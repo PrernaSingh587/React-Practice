@@ -39,11 +39,6 @@ const ExpenseForm =() => {
 })
     console.log(event.target.value);
 }
-    const [varrr,changevarrr] = useState(1);
-    const changesome =() => {
-        changevarrr(varrr+1);
-    }
-
     const titleHandler = (event) => {
          //setEnteredTitle(event.target.value);
         
@@ -59,9 +54,6 @@ const ExpenseForm =() => {
         console.log(event.target.value);
     }
     return <form>
-        <div onClick={changesome}>
-            {varrr}
-        </div>
        <div className ="new-expense__controls">
            <div className ="new-expense__control">
                <label>Title</label>
