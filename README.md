@@ -30,9 +30,30 @@ return (
     <div onClick={goodFunc}> 
 
     {nameOfVariable}
-    
+
     </div>
 );
   
-}
+}  
 
+Exmple 2 :
+const [varrr,changevarrr] = useState(1);
+    const changesome =() => {
+        changevarrr(varrr+1);
+    }
+
+#Method :2 
+
+For multiple useState :
+const [useInput,funcInput] = useState({
+    nume1: '',
+    nume2: '',
+    nume3: ''
+})
+
+const fnn = () => {
+    funcInput((prevState) => {
+       return {...prevState,
+        nume2:66 }
+    })
+}
