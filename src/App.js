@@ -3,7 +3,7 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
-  const expenses = [
+  var expenses = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -25,9 +25,14 @@ function App() {
     },
   ];
 
+const someFunc = (expenseData) => {
+    expenses = [...expenses,expenseData];
+    console.log(expenses);
+}
+
   return (
     <div>
-      <NewExpense/>
+      <NewExpense someFunc={someFunc}/>
       <Expenses items={expenses}/>
     </div>
   );
