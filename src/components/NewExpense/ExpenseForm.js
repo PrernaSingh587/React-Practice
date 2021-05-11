@@ -61,12 +61,18 @@ const [enteredDate,setEnteredate] = useState('');
         console.log(event.target.value);
     }
 
-    const submitHandler = (event) => {
+
+const submitHandler = (event) => {
         event.preventDefault(); //prevents default submission behaviour of form
         //which causes to reload the page
+ if(enteredTitle==='' || enteredAmount==='' || enteredDate==='') {
+            console.log("Nothing Entered"); 
+            alert("Enter Something");
+            return;
+        }
         const expenseData = {
             title:enteredTitle,
-            amount:enteredAmount,
+            amount:+enteredAmount,
             date: new Date(enteredDate)
         }
 
@@ -74,10 +80,11 @@ const [enteredDate,setEnteredate] = useState('');
         setEnteredTitle('');
         setEnteredate('');
 
-        props.onSaveExpenseData(expenseData);
-
-           
+        props.onSaveExpenseData(expenseData);      
     }
+
+
+
     
     return <form onSubmit ={submitHandler}>
        <div className ="new-expense__controls">
@@ -100,6 +107,9 @@ const [enteredDate,setEnteredate] = useState('');
        </div>
        <div className ="new-expense__actions">
            <button type="submit">Add Expense</button>
+       </div>
+       <div className ="new-expense__actions">
+           <button onClick={props.stopEdit}>Cancel</button>
        </div>
     </form>
 }
