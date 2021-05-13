@@ -26,4 +26,15 @@ useEffect(() => {
 //renders only when the deps change. for eg you can add some state variables here. CHanging them will make the compoenent re-render and so will the function inside
 this useEffect hook.
 
-// this also gets executed when this particular component is unmounted from the DOM
+
+##Clean ups useEffect
+useEffect(() => {
+
+   console.log("something")        //1st arg
+   
+   return () => {                            // 2nd arg
+      console.log("something") // cleaning up     
+   }
+},[deps]) 
+
+//the clean up part will help in unmounting the component
