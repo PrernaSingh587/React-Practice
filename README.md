@@ -37,4 +37,6 @@ useEffect(() => {
    }
 },[deps]) 
 
-//the clean up part will help in unmounting the component
+//When the component is first rendered,  first arg in useEffect is run first, and the clean up function registers its first task. When the useEffect is triggered again, firstly the clean up function will run, pushing out the previous registered task and then the first arg will run. The clean up function will again register its 2nd task.  
+
+//the clean up will run also when the component is unmounted
