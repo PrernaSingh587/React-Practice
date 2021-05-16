@@ -14,7 +14,8 @@ function App() {
     const storedUserInfo = localStorage.getItem('isLoggedIn');
     if(storedUserInfo === null) return;
     if(storedUserInfo.length > 0) setIsLoggedIn(true);
-  }, []);
+  }, []);        //ensures that when the page is reloaded, that is the components are freshly rendered, the logged in info
+  //remains saved locally in browser
     
   const loginHandler = (email, password) => {
     // We should of course check email and password
@@ -32,13 +33,14 @@ function App() {
   return (
     <AuthContext.Provider value= {
       {
-        isLoggedIn : isLoggedIn
+        isLoggedIn : isLoggedIn,
+        onLogout : logoutHandler
       }
     }>
-      <MainHeader onLogout={logoutHandler} />
+      <MainHeader  />
       <main>
         {!isLoggedIn && <Login  onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
+        {isLoggedIn && <Home  />}
       </main>
       </AuthContext.Provider>
   );

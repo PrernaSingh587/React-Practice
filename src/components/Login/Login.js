@@ -70,7 +70,7 @@ const Login = (props) => {
     setFormIsValid(
       emailState.isValid && passwordState.isValid
     );
-   },1000);
+   },500);
 
    return () => {        //clean up function , executes also when
     //component gets unmounted from the DOM
